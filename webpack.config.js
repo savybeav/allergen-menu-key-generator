@@ -9,7 +9,7 @@ module.exports = {
   mode: process.env.NODE_ENV,
   module: {
     rules: [{
-      test: /\.jsx?/,
+      test: /\.(js|jsx)?/,
       exclude: /(node_modules)/,
       use: {
         loader: 'babel-loader',
@@ -19,5 +19,5 @@ module.exports = {
       }
     }]
   },
-  devServer: { publicPath: path.resolve(__dirname, '/build') }
+  devServer: { publicPath: path.resolve(__dirname, '/build/') }
 };

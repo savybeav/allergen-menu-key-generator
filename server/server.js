@@ -5,12 +5,12 @@ const PORT = 3000;
 const app = express();
 
 app.use(express.json());
-app.use(express.static(path.resolve(__dirname, '../../build')))
+app.use('/build', express.static(path.resolve(__dirname, '../../build')))
 
-app.use('/', (req, res) => {
+app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../index.html'))
 })
 
-app.listen(PORT, () => { console.log(`Listening on port ${PORT}...`)})
+app.listen(PORT, () => { console.log(`Listening on port ${PORT}...`) })
 
-module.exports = app;
+// module.exports = app;
