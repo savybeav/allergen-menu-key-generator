@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import IngredientSearch from './components/IngredientSearch.jsx';
 
 // import Ingredients from '../components/Ingredients';
 
@@ -9,7 +10,7 @@ class App extends Component {
   render() {
     return(
       <div>
-        <h4>Hello World!</h4>
+        <IngredientSearch />
       </div>
     );
   }
