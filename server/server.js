@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 })
 
 // route handler for GET request to /search. Then invoke searchInggredients middleware.
-app.get('/search', allergenController.searchIngredients, (req, res) => {
+app.post('/search', allergenController.searchIngredients, (req, res) => {
   return res.status(200).json(res.locals.results)
 })
 

@@ -4,14 +4,19 @@ import resultsDisplay from './resultsDisplay.jsx';
 
 const IngredientSearch = () => {
   const searchDatabase = () => {
+    // create a variable to store the input in order to pass it along to the POST request
     const ingredient = document.getElementById('input')
-
-    fetch('/search')
+    fetch(`/search`, {
+      method: 'POST',
+      body: JSON.stringify({input: ingredient.value}),
+      headers: { 'Content-Type': 'application/json',}
+    })
       .then(data => data.json())
       .then(response => {
+        // store the result of the query in an array
         const result = Array.from(response)
-        
-        console.log(ingredient.value)
+        // if the result is an empty array, send a message back that says there are no allergens!
+        // else create a new component with the results and display them below the div
       })
       .catch(err => console.log('searchDatabase in IngredientSearch fetch /search: ERROR: ', err))
   };
