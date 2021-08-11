@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import IngredientSearch from './components/IngredientSearch.jsx';
+import Search from './components/IngredientSearch.jsx';
 
 // import Ingredients from '../components/Ingredients';
 
@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return(
       <div>
-        <IngredientSearch />
+        <Search />
       </div>
     );
   }

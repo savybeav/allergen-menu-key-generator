@@ -19,5 +19,8 @@ module.exports = {
       }
     }]
   },
-  devServer: { publicPath: path.resolve(__dirname, '/build/') }
+  devServer: { 
+    publicPath: path.resolve(__dirname, '/build/'),
+    proxy: {'/': 'http://localhost:3000/',}
+  }
 };
