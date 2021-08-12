@@ -9,8 +9,8 @@ allergenController.searchIngredients = (req, res, next) => {
   const querySelector = [userInput.input]
   // console.log('this is the querySelector Array: ', querySelector)
 
-  // declare SQL query to search database for an ingredient
-  const queryString = `SELECT * FROM allergen_keys WHERE item=$1;`
+  // declare SQL query to search database for an ingredient and return it's "key"
+  const queryString = `SELECT key FROM allergen_keys WHERE item=$1;`
   // call the query method on database
   database.query(queryString, querySelector)
     // .then()

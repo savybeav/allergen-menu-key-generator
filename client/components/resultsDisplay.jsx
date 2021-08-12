@@ -1,12 +1,16 @@
 import React from 'react';
 
 
-const resultsDisplay = () => {
+const Result = (props) => {
+  const keyResults = [];
+
+
+
   return (
     <div>
-      <span>Here are your allergen key(s): </span>
+      <span>Here are your allergen key(s): {props.result}</span>
     </div>
   )
 }
 
-export default resultsDisplay;
+export default Result;
