@@ -16,7 +16,7 @@ allergenController.searchIngredients = (req, res, next) => {
     // .then()
     .then(data => {
       res.locals.results = data.rows;
-      console.log('This is res.locals.results after your database query: ', res.locals.results)
+      console.log('This is res.locals.results after your database query: ', data.rows[0])
     })
   // if there's an error, return a status code and a descriptive message
     .then(() => next())

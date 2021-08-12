@@ -1,9 +1,8 @@
 import React from 'react';
-// import resultsDisplay from './resultsDisplay.jsx';
+import Result from './resultsDisplay.jsx';
 
 
 const Search = (props) => {
-  // console.log('this is props on the Search Component: ', props.result)
   const searchDatabase = () => {
     // create a variable to store the input in order to pass it along to the POST request
     const ingredient = document.getElementById('input')
@@ -14,21 +13,23 @@ const Search = (props) => {
     })
       .then(data => data.json())
       .then(response => {
-        // store the result of the query in an array
-        const keyResult = Array.from(response)
-        // console.log(result)
-        console.log('this is printing from with the fetch request: ', props.result)
-        props.updateResult(keyResult)
+        // store the result of the query in an variable
+        const keyResult = response[0];
         // if the result is an empty array, send a message back that says there are no allergens!
-        // else create a new component with the results and display them below the div
+        if(keyResult === undefined) props.update('This ingredient is not on the FDA list of Top 8 Allergens...')
+        // else create update the state with the results and display them below the Result component
+        props.update(keyResult.key);
+        // console.log('Props: ', props)
       })
       .catch(err => console.log('searchDatabase in IngredientSearch fetch /search: ERROR: ', err))
   };
   return (
   <div className="ingredientSearch">
-    <span>Enter your ingredient here: </span>
+    <span>Enter your ingredient(s) here: </span>
     <input id="input"/>
     <button type="button" onClick={searchDatabase}>Submit</button>
+    { props.showComponent ? <Result result={props.result} /> : null }
+    {/* <Result result={props.result}/> */}
   </div>
   )
 };

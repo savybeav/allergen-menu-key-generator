@@ -8,17 +8,24 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      result: ['testing 123'],
-      // create a function to update the result array using setState and pass this function to the search component
-      updateResult: (keys) => this.setState({result: [keys]}),
+      result: '',
+      showComponent: false,
     }
-   }
+    this.onButtonClick = this.onButtonClick.bind(this);
+  }
+  // create a function to update the result array using setState and pass this function to the search component
+  onButtonClick (input) {
+    this.setState({
+      result: [input],
+      showComponent: true,
+    });
+  }
 
   render() {
     return(
       <div>
-        <Search update={this.state.updateResult} result={this.state.result}/>
-        <Result result={this.state.result}/>
+        <Search update={this.onButtonClick} result={this.state.result} showComponent={this.state.showComponent}/>
+        {/* <Result result={this.state.result}/> */}
       </div>
     );
   }
