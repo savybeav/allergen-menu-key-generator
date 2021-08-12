@@ -25,7 +25,7 @@ const Search = (props) => {
   };
   return (
   <div className="ingredientSearch">
-    <span>Enter your ingredient(s) here: </span>
+    <span>Enter your ingredient here: </span>
     <input id="input"/>
     <button type="button" onClick={searchDatabase}>Submit</button>
     <p>
