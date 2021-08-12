@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Search from './components/IngredientSearch.jsx';
-import Result from './components/resultsDisplay.jsx';
+import Table from './components/AllergenTable.jsx';
 
 
 
@@ -23,9 +23,10 @@ class App extends Component {
 
   render() {
     return(
-      <div>
+      <div id="ingredientSearch">
         <Search update={this.onButtonClick} result={this.state.result} showComponent={this.state.showComponent}/>
         {/* <Result result={this.state.result}/> */}
+        <Table />
       </div>
     );
   }

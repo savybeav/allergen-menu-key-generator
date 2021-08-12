@@ -1,5 +1,5 @@
 import React from 'react';
-import Result from './resultsDisplay.jsx';
+import Result from './ResultsDisplay.jsx';
 
 
 const Search = (props) => {
